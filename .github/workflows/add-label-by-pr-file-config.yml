@@ -1,0 +1,7 @@
+[Topic] Documentation📄:
+  - '**/*.md'
+[Topic] CI🔧:
+  - '.github/*.yml'
+  - '.github/workflows/**/*'
+[Topic] Test☑:
+  -  'tests/**/*.py'

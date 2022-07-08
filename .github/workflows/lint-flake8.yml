@@ -1,0 +1,31 @@
+name: "✑ Lint python file with flake8 using reviewdog"
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - develop
+    paths:
+      - '**/*.py'
+
+jobs:
+  lint_flake8:
+    name: "✒ lint py with flake8"
+    runs-on: ubuntu-latest
+    name: Lint
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v2
+      - name: Set up Python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+      - name: flake8 Lint
+        uses: reviewdog/action-flake8@v3
+        with:
+          github_token: ${{ secrets.KIRARI_TOKEN }}
+          flake8_args: "--max-line-length=88"
+          reporter: github-pr-review
+          level: error

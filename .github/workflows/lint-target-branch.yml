@@ -1,0 +1,21 @@
+name: "✒ Close Pull Request if it targets main"
+
+on:
+  pull_request_target:
+    types: [opened]
+    branches:
+      - main
+      - master
+
+jobs:
+  run:
+    name: "✒ Lint target branch"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign variable
+        id: secret
+        run: echo '::set-output name=secret::${{secrets.MERGE_ACCEPTED_USERS}}'
+      - uses: superbrothers/close-pull-request@v3
+        if: ${{ !contains(steps.secret.outputs.secret, GITHUB_ACTOR) }}
+        with:
+          comment: "Hey! Please do not to pull request to main branch! Please try request to develop instead!"

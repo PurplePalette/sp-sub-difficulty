@@ -1,0 +1,27 @@
+name: "✒ Lint dockerfile with hadolint using reviewdog"
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - develop
+    paths:
+      - '**/Dockerfile'
+      - '*_Dockerfile'
+      - 'Dockerfile_*'
+
+jobs:
+  hadolint:
+    name: "✒ lint dockerfile"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v1
+      - name: hadolint
+        uses: reviewdog/action-hadolint@v1
+        with:
+          github_token: ${{ secrets.KIRARI_TOKEN }}
+          reporter: github-pr-review
+          level: error
