@@ -1,0 +1,24 @@
+name: "✑ Lint python file with mypy using reviewdog"
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - develop
+    paths:
+      - '**/*.py'
+
+jobs:
+  lint_mypy:
+    name: "✒ lint py with mypy"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: tsuyoshicho/action-mypy@v3
+        with:
+          github_token: ${{ secrets.KIRARI_TOKEN }}
+          reporter: github-pr-review
+          level: error
+          workdir: src

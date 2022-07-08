@@ -1,0 +1,23 @@
+name: "✒ Lint markdown files with markdownlint using reviewdog"
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - develop
+    paths:
+      - '**/*.md'
+
+jobs:
+  markdownlint:
+    name: "✒ lint markdown"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: markdownlint
+        uses: reviewdog/action-markdownlint@v0
+        with:
+          github_token: ${{ secrets.KIRARI_TOKEN }}
+          reporter: github-pr-review

@@ -1,0 +1,17 @@
+name: "🏷️ Remove priority labels on closed"
+
+on:
+  issues:
+    types: [closed]
+jobs:
+  remove_priority_labels:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels:
+            - "[Priority] High 💨"
+            - "[Priority] Middle 🍨"
+            - "[Priority] Low 💤"

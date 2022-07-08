@@ -1,0 +1,24 @@
+name: "✑ Lint python file with black using reviewdog"
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - develop
+    paths:
+      - '**/*.py'
+
+jobs:
+  lint_black:
+    name: "✒ lint py with black"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: reviewdog/action-black@v2
+        with:
+          github_token: ${{ secrets.KIRARI_TOKEN }}
+          black_args: "--line-length=88"
+          reporter: github-pr-review
+          level: error

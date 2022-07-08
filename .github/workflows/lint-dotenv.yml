@@ -1,0 +1,26 @@
+name: "✒ Lint dotenv with dotenv-linter using reviewdog"
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+    branches:
+      - develop
+    paths:
+      - '**/.env_*'
+      - '**/*.env'
+      - '.env_*'
+
+jobs:
+  dotenv-linter:
+    name: "✒ lint dotenv"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run dotenv-linter with code suggestions
+        uses: dotenv-linter/action-dotenv-linter@v2
+        with:
+          github_token: ${{ secrets.KIRARI_TOKEN }}
+          reporter: github-code-suggestions
+          level: error
