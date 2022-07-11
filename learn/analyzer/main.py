@@ -1,9 +1,10 @@
+from typing import Counter
 import numpy as np
 import glob
 import sus
 
 files = glob.glob("./charts/*.sus")
-file = files[0]
+file = files[20]
 
 with open(file, "r") as f:
     score = sus.load(f)
@@ -19,6 +20,15 @@ with open(file, "r") as f:
     print("tap_max:", tap_diff_max)
     print("tap_min:", tap_diff_min)
     print("tap_avg:", tap_diff_avg)
+    # 同時押しデータ
+    # タップの時間毎の同時押し数
+    tap_ticks = [t.tick for t in score.taps]
+    tap_counter = Counter(tap_ticks)
+    # 同時押し数の最大値
+    tap_counter_max = tap_counter.most_common()[0][0]
+    # 同時押し数の平均値
+    tap_counter_values = [c[0] for c in tap_counter.most_common()]
+    tap_counter_avg = sum(tap_counter_values) / len(tap_counter_values)
     # タップレーンデータ
     tap_widths = [t.width for t in score.taps]
     tap_widths_cnt = len(tap_widths)
@@ -49,3 +59,7 @@ with open(file, "r") as f:
     print(f"bpm_avg: {bpm_avg:.2f}")
     print(f"bpm_max: {bpm_max:.2f}")
     print(f"bpm_min: {bpm_min:.2f}")
+    # TODO: 合計ノーツ数
+    # TODO: 曲の秒数
+    # TODO: 中央値
+    # TODO: statisticsの利用
