@@ -6,12 +6,13 @@ authors = ["Dosugamea <17107514+Dosugamea@users.noreply.github.com>"]
 license = "AGPLv3"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 httpx = "^0.23.0"
 fastapi = "^0.78.0"
 pandas = "^1.4.3"
 scikit-learn = "^1.1.1"
 dataclasses-json = "^0.5.7"
+sus-io = "^0.2.1"
 
 [tool.poetry.dev-dependencies]
 matplotlib = "^3.5.2"
