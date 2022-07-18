@@ -30,7 +30,7 @@ jobs:
       - name: Prepare Current Date Arg
         env:
           TZ: 'Asia/Tokyo' # タイムゾーン指定
-        run: echo "CURRENT_DATETIME=$(date +'%Y-%m-%d %H:%M:%S')" >> $GITHUB_ENV
+        run: echo "CURRENT_DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v1
