@@ -14,7 +14,6 @@ jobs:
   lint_flake8:
     name: "✒ lint py with flake8"
     runs-on: ubuntu-latest
-    name: Lint
     steps:
       - name: Check out source repository
         uses: actions/checkout@v2

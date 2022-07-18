@@ -1,7 +1,7 @@
-[Topic] Documentation📄:
+'[Topic] Documentation📄':
   - '**/*.md'
-[Topic] CI🔧:
+'[Topic] CI🔧':
   - '.github/*.yml'
   - '.github/workflows/**/*'
-[Topic] Test☑:
+'[Topic] Test☑':
   -  'tests/**/*.py'

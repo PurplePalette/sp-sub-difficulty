@@ -9,6 +9,7 @@ on:
       - develop
     paths:
       - '**/*.py'
+      - '*.py'
 
 jobs:
   lint_mypy:
@@ -21,4 +22,4 @@ jobs:
           github_token: ${{ secrets.KIRARI_TOKEN }}
           reporter: github-pr-review
           level: error
-          workdir: src
+          workdir: ./

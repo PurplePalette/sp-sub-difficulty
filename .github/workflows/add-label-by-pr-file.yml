@@ -1,5 +1,8 @@
 name: "🏷️ Add label by PR file"
 
+permissions:
+  pull-requests: write
+
 on:
   pull_request:
     types: [opened]
@@ -10,6 +13,6 @@ jobs:
     steps:
       - uses: actions/labeler@v3
         with:
-          configuration-path: ".github/workflows/add-label-by-pr-file-config.yml"
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          configuration-path: ".github/workflows/config/add-label-by-pr-file-config.yml"
+          repo-token: "${{ secrets.KIRARI_TOKEN }}"
           sync-labels: true
