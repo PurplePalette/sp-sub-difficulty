@@ -17,13 +17,13 @@ class ChartAnalyzer():
         """配列から特徴量となりうる値(個数,最大値,最小値,平均値,中央値,標準偏差)を求めて返す"""
         len_value = len(values)
         max_value = max(values)
-        min_value = min(values)
+        # min_value = min(values)
         avg_value = statistics.mean(values)
         med_value = statistics.median(values)
         value_np = np.array(values)
         sd_value = np.std(value_np, ddof=0)
         return [
-            len_value, max_value, min_value, avg_value, med_value, sd_value
+            len_value, max_value, avg_value, med_value, sd_value
         ]
 
     def get_count_values(self, score) -> List[int]:
