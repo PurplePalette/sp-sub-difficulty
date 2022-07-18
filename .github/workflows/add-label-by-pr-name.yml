@@ -1,7 +1,10 @@
 name: "🏷️ Add label by PR name"
 
+permissions:
+  pull-requests: write
+
 on:
-  pull_request:
+  pull_request_target:
     types: [opened]
 
 jobs:
@@ -10,6 +13,6 @@ jobs:
     steps:
       - uses: TimonVS/pr-labeler-action@v3.1.0
         with:
-          configuration-path: ".github/workflows/add-label-by-pr-name-config.yml"
+          configuration-path: ".github/workflows/config/add-label-by-pr-name-config.yml"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.KIRARI_TOKEN }}

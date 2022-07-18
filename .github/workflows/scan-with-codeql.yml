@@ -3,7 +3,7 @@ name: "🔒 Scan with CodeQL"
 on:
   push:
     branches: [ "develop", "main", "master" ]
-  pull_request:
+  pull_request_target:
     branches: [ "develop", "main", "master" ]
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'python', 'javascript' ]
+        language: ['python']
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
 
