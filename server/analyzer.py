@@ -63,7 +63,7 @@ class ChartAnalyzer():
         sld_diff_features = self.get_feature_values(sld_diff)
         # BPM
         bpm_values = [bpm[1] for bpm in score.bpms]
-        bpm_features = self.get_feature_values(bpm_values)
+        bpm_features = self.get_feature_values(bpm_values)[:1]
         # 曲長のうち 4分音符の個数
         beat_cnt = math.ceil(chart_len / self.TICKS_PER_BEAT)
         # 4分音符 1つあたりのノーツ数
