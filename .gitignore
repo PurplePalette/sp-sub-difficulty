@@ -128,8 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-learn/01_downloader/charts/*.sus
-learn/01_downloader/result.json
-learn/02_analyzer/charts/*.sus
-learn/02_analyzer/result.json
-learn/02_analyzer/learnable.csv
+**/result.json
+**/learnable.csv
+*.sus
