@@ -1,5 +1,5 @@
 from tempfile import NamedTemporaryFile
-from sklearn.ensemble import RandomForestClassifier  # noqa: F401
+from sklearn.ensemble import RandomForestRegressor  # noqa: F401
 from fastapi import FastAPI, UploadFile
 from fastapi.staticfiles import StaticFiles
 from analyzer import ChartAnalyzer
@@ -9,7 +9,7 @@ import pickle
 
 @dataclass
 class DifficultyResponse():
-    difficulty: int
+    difficulty: float
 
 
 analyzer = ChartAnalyzer()
@@ -39,7 +39,7 @@ async def predict_difficulty(file: UploadFile):
         f.seek(0)
         data = analyzer.get_feature_values_from_sus(f.name)
         result = predictor.predict([data])
-    return DifficultyResponse(difficulty=int(result[0]))
+    return DifficultyResponse(difficulty=result[0])
 
 app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
