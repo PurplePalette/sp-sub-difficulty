@@ -1,7 +1,7 @@
 name: "✒ Lint commit messages with commitlint"
 
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
       - edited
@@ -14,5 +14,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 1
+          fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v5
