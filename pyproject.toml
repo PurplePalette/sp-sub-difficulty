@@ -7,18 +7,20 @@ license = "AGPLv3"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-httpx = "^0.23.0"
 fastapi = "^0.78.0"
-pandas = "^1.4.3"
 scikit-learn = "^1.1.1"
-dataclasses-json = "^0.5.7"
 sus-io = "^0.2.1"
 uvicorn = "^0.18.2"
+gunicorn = "^20.1.0"
 python-multipart = "^0.0.5"
+certifi = "^2022.6.15"
 
 [tool.poetry.dev-dependencies]
+dataclasses-json = "^0.5.7"
 matplotlib = "^3.5.2"
 flake8 = "^4.0.1"
+httpx = "^0.23.0"
+pandas = "^1.4.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
