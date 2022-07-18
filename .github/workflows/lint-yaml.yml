@@ -10,6 +10,8 @@ on:
     paths:
       - "**.yml"
       - "**.yaml"
+    paths-ignore:
+      - '.github/workflows/**'
 
 jobs:
   yamllint:
@@ -22,4 +24,5 @@ jobs:
         with:
           github_token: ${{ secrets.KIRARI_TOKEN }}
           reporter: github-pr-review
-          yamllint_flags: '/'
+          yamllint_flags: '--config-file .github/workflows/config/yamllint.yml'
+          fail_on_error: true
