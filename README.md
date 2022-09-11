@@ -1,4 +1,5 @@
 # sonolus-difficulty-server
+
 ![Python Version](https://img.shields.io/badge/python-v3.9-blue)
 ![License](https://img.shields.io/badge/license-AGPLv3%2B-green)
 sus chart difficulty predicting server for [sonolus-fastapi](https://github.com/PurplePalette/sp-api-v3)
