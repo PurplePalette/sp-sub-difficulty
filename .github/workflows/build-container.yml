@@ -8,13 +8,6 @@ jobs:
   push:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait for test
-        uses: lewagon/wait-on-check-action@v1.0.0
-        with:
-          ref: main
-          check-name: test
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          wait-interval: 10
       - name: Check out the repo
         uses: actions/checkout@v3
 
