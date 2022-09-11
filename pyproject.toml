@@ -6,14 +6,15 @@ authors = ["Dosugamea <17107514+Dosugamea@users.noreply.github.com>"]
 license = "AGPLv3"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.9,<3.11"
 fastapi = "^0.78.0"
-scikit-learn = "^1.1.1"
+scikit-learn = "1.1.1"
 sus-io = "^0.2.1"
 uvicorn = "^0.18.2"
 gunicorn = "^20.1.0"
 python-multipart = "^0.0.5"
 certifi = "^2022.6.15"
+scipy = "1.9.1"
 
 [tool.poetry.dev-dependencies]
 dataclasses-json = "^0.5.7"
