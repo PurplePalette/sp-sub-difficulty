@@ -6,7 +6,7 @@ WORKDIR /app
 
 RUN apt install ca-certificates
 COPY poetry.lock pyproject.toml ./
-RUN pip install poetry==1.1.12 && \
+RUN pip install poetry==1.2.0 && \
     poetry config virtualenvs.create false && \
     poetry install --no-dev
 
